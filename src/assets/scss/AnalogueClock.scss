@@ -1,0 +1,77 @@
+#analogue-clock {
+    .clock-border {
+        width: 250px;
+        height: 250px;
+        border: red 10px solid;
+        border-radius: 300px;
+        position:relative;
+        top: 0px;
+        left: 0px;
+        .panel {
+            width:100%;
+            height: 100%;
+            position: relative;
+            border-radius: 100%;
+            &>span {
+                display: inline-block;
+                position: absolute;
+                transform-origin: bottom center;
+                height: 110px;
+                border: transparent 1px solid;
+                width: 20px;
+                left: 105px;
+                top: 5px;
+            }
+            @for $i from 0 through 59 {
+                &>span:nth-child(#{$i + 1 }) {
+                    transform: rotate(#{$i * 6}deg);
+                }
+            }
+        }
+        .controlPanel {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            display: flex;
+            border-radius: 100%;
+            align-items: center;
+            justify-content: center;
+            .controlBox {
+                width: 20px;
+                height: 20px;
+                background-color: red;
+                border-radius: 100%;
+                position: relative;
+                top: 0px;
+                left: 0px;
+                z-index: 1;
+            }
+            .hands {
+                display: inline-block;
+                position: absolute;
+                transform-origin: bottom center;
+                background: yellow;
+            }
+            .hourHand {
+                width: 10px;
+                height: 70px;
+                top: 45px;
+                left: 110px;
+            }
+            .minHand {
+                width: 6px;
+                height: 90px;
+                top: 25px;
+                left: 112px;
+            }
+            .secHand {
+                width: 2px;
+                height: 100px;
+                top: 15px;
+                left: 114px;
+            }
+        }
+    }
+}
